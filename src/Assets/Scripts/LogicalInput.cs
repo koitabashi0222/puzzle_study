@@ -18,7 +18,7 @@ public class LogicalInput
         QuickDrop=1<<4,
         Down=1<<5,
 
-        Max=6,
+        MAX=6,
     }
 
     Key inputRaw;
@@ -26,7 +26,7 @@ public class LogicalInput
     Key inputRel;
     Key inputRep;
 
-    int[] trgWaitingTime=new int[(int)Key.Max];
+    int[] _trgWaitingTime=new int[(int)Key.MAX];
 
     public bool IsRaw(Key k)
     {
@@ -55,9 +55,9 @@ public class LogicalInput
         inputRel = 0;
         inputRep = 0;
 
-        for(int i=0;i<(int)Key.Max;i++)
+        for(int i=0;i<(int)Key.MAX;i++)
         {
-            trgWaitingTime[i] = 0;
+            _trgWaitingTime[i] = 0;
         }
     }
 
@@ -69,7 +69,7 @@ public class LogicalInput
         inputRaw = inputDev;
 
         inputRep = 0;
-        for(int i=0;i<(int)Key.Max;i++)
+        for(int i=0;i<(int)Key.MAX;i++)
         {
             if(inputTrg.HasFlag((Key)(1<<i)))
             {

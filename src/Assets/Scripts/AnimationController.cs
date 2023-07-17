@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AnimationController
 {
-    float _time = 0.0f;
+    float _time = 0f;
     float _inv_time_max = 1.0f;
 
     public void Set(int max_time)
