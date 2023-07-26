@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    uint _additiveScore = 0;
     const int TRANS_TIME = 3;
     const int ROT_TIME = 3;
 
@@ -207,6 +207,7 @@ public class PlayerController : MonoBehaviour
             _last_position += Vector2Int.down;
             _fallCount += FALL_COUNT_UNIT;
         }
+        if (is_fast) _additiveScore++;
         return true;
     }
 
@@ -283,5 +284,12 @@ public class PlayerController : MonoBehaviour
 
         return p + new Vector3(Mathf.Sin(theta), Mathf.Cos(theta), 0.0f);
     }
+    // “¾“_‚ÌŽó‚¯“n‚µ
+    public uint popScore()
+    {
+        uint score = _additiveScore;
+        _additiveScore = 0;
 
+        return score;
+    }
 }
